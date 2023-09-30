@@ -2,7 +2,7 @@
 a simple pure data patch to visualise heartbeat with a webcam
 
 HOW TO USE IT?
-Turn the DSP on and press your webcam with your finger.
+Make sure you have installed the GEM library. Turn the DSP on and press your webcam with your finger.
 
 HOW DOES IT WORK?
 
