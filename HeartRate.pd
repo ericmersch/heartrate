@@ -1,0 +1,103 @@
+#N canvas 60 27 1860 984 12;
+#X declare -lib Gem;
+#X obj 280 147 unpack 0 0 0 0;
+#X obj 92 11 declare -lib Gem;
+#X obj 185 115 pix_mean_color;
+#X obj 185 50 gemhead;
+#X obj 185 82 pix_video;
+#N canvas 0 22 450 300 gemwin 0;
+#X obj 132 144 gemwin;
+#X obj 67 114 outlet;
+#X obj 67 10 inlet;
+#X msg 67 70 set destroy;
+#X msg 132 114 create \, 1;
+#X msg 217 113 destroy;
+#X msg 156 71 set create;
+#X obj 67 41 route create;
+#N canvas 107 24 450 300 esc 0;
+#X obj 65 20 gemkeyboard;
+#X obj 65 167 outlet;
+#X obj 89 71 keyname;
+#X obj 128 96 sel Escape;
+#X obj 65 41 sel 53;
+#X obj 189 47 sel Escape;
+#X obj 150 22 gemkeyname;
+#X connect 0 0 4 0;
+#X connect 2 1 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 1 5 0;
+#X restore 186 8 pd esc;
+#X connect 2 0 7 0;
+#X connect 3 0 1 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 7 0 4 0;
+#X connect 7 1 6 0;
+#X connect 7 1 5 0;
+#X connect 8 0 6 0;
+#X connect 8 0 5 0;
+#X restore 90 105 pd gemwin;
+#X msg 91 80 create;
+#X obj 281 231 lop~ 2;
+#X obj 280 176 * 1000;
+#X obj 280 204 hip~ 0.5;
+#X obj 281 261 expr~ 1/(1+exp(-$v1));
+#X obj 91 51 loadbang;
+#X obj 185 148 pix_texture;
+#X obj 185 173 rectangle 4 3;
+#X obj 510 111 snapshot~;
+#X floatatom 510 137 9 0 0 0 - - - 0;
+#X obj 582 110 f;
+#X obj 634 110 + 1;
+#X obj 510 166 tabwrite signal;
+#X obj 582 135 mod 200;
+#X obj 582 77 metro 15;
+#X obj 582 22 loadbang;
+#X obj 582 49 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array signal 200 float 5;
+#A 0 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
+0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5;
+#X coords 0 1 199 0 600 400 1 0 0;
+#X restore 560 382 graph;
+#X obj 280 293 s~ hr;
+#X obj 510 21 r~ hr;
+#X connect 0 0 8 0;
+#X connect 2 0 12 0;
+#X connect 2 1 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 5 0;
+#X connect 7 0 10 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 10 0 24 0;
+#X connect 11 0 6 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 15 0 18 0;
+#X connect 16 0 19 0;
+#X connect 16 0 17 0;
+#X connect 17 0 16 1;
+#X connect 19 0 18 1;
+#X connect 20 0 14 0;
+#X connect 20 0 16 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 25 0 14 0;
